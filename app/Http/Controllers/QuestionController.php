@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
+   public function __construct()
+   {
+       $this->middleware('auth',['except' => ['index','show']]);
+   }
+
     /**
      * Display a listing of the resource.
      *
@@ -70,6 +75,8 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
+        //policy //update from QuestionPolicy
+        $this->authorize('update',$question);
         return view('questions.edit',compact('question'));
     }
 
@@ -82,6 +89,8 @@ class QuestionController extends Controller
      */
     public function update(AskQuestionRequest $request, Question $question)
     {
+        //policy //update from QuestionPolicy
+        $this->authorize('update',$question);
         $question->update($request->only('title','body'));
         return redirect()->route('questions.index')->with('success','your question has been updated.');
     }
@@ -94,6 +103,8 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question)
     {
+        //policy //delete from QuestionPolicy
+        $this->authorize('delete',$question);
         $question->delete();
         return redirect()->route('questions.index')->with('success','your question has been deleted.');
     }
