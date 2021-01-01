@@ -12,6 +12,9 @@ class Answer extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function getCreatedDateAttribute(){
+        return $this->created_at->diffForHumans();
+    }
     //accessor start from get
     public function getBodyHtmlAttribute()
     {
