@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class QuestionController extends Controller
 {
@@ -14,8 +15,15 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions =Question::latest()->paginate(5);
-        return view('questions.index',compact('questions'));
+        //install debug bar
+        //composer require barryvdh/laravel-debugbar --dev
+//        --
+        //return view without type return must use render
+      // \DB::enableQueryLog();
+         //view('questions.index',compact('questions'))->render();
+        // dd(\DB::getQueryLog());
+        $questions =Question::with('user')->latest()->paginate(5);
+       return  view('questions.index',compact('questions'));
     }
 
     /**
