@@ -38,7 +38,7 @@ class Question extends Model
     //accessor start from get
     public function getStatusAttribute()
     {
-        if($this->answers >0) {
+        if($this->answers_count >0) {
            if($this->best_answer_id){
                return "answerd-accepted";
            }
@@ -51,5 +51,8 @@ class Question extends Model
     {
        //for install : composer require parsedown/laravel
         return \Parsedown::instance()->text($this->body);
+    }
+    public function answers(){
+        return $this->hasMany(Answer::class);
     }
 }

@@ -12,7 +12,7 @@ $factory->define(App\Question::class, function (Faker $faker) {
         //with true value give me new line in paragraph
         'body'=>$faker->paragraph(rand(3,7),true),
         'views'=>rand(0,10),
-        'answers'=>rand(0,10),
+        'answers_count'=>rand(0,10),
         'votes'=>rand(-3,10),
     ];
 });
