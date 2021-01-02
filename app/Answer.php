@@ -30,6 +30,9 @@ class Answer extends Model
             $answer->question->increment('answers_count');
 //            $answer->save();
         });
+        static::deleted(function ($answer){
+            $answer->question->decrement('answers_count');
+        });
     }
 
 }
