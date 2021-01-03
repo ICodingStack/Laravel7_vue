@@ -74,5 +74,5 @@ class Question extends Model
     public function getFavoritesCountAttribute(){
         return $this->favorites->count();
     }
-   
+
 }
