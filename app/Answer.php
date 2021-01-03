@@ -21,7 +21,7 @@ class Answer extends Model
     public function getBodyHtmlAttribute()
     {
         //for install : composer require parsedown/laravel
-        return \Parsedown::instance()->text($this->body);
+        return clean(\Parsedown::instance()->text($this->body));
     }
 
     public static function boot()
