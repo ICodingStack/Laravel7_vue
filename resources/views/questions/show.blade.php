@@ -41,10 +41,15 @@
                 </div>
             </div>
         </div>
-        @include('answers._index',[
+        <div class="col-md-12">
+            @include('answers._index',[
           'answers'=>$question->answers ,
           'answerCount'=>$question->answers_count
           ])
-        @include('answers._create')
+        </div>
+            <div class="col-md-12">
+                @include('answers._create')
+            </div>
+
     </div>
 @endsection
