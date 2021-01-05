@@ -8,7 +8,9 @@ class Answer extends Model
 {
     use VotableTrait;
     protected $fillable =['user_id', 'body'];
-    protected $appends = ['created_date'];
+    protected
+        $appends =
+        ['created_date'];
     public function question(){
         return $this->belongsTo(Question::class);
     }
