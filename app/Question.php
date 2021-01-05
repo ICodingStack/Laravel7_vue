@@ -22,6 +22,7 @@ class Question extends Model
         'created_at',
         'updated_at'
     ];
+    protected  $appends =['created_date'];
     public function user(){
         return $this->belongsTo(User::class);
     }

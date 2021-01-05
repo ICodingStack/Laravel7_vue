@@ -14,6 +14,7 @@
                                     <h1>{{ $question->title }}</h1>
                                 </div>
                                 <div class="ml-auto">
+                                <div class="ml-auto">
                                     <a href="{{route('questions.index')}}" class="btn btn-outline-secondary">
                                         Back To All Questions
                                     </a>
@@ -30,7 +31,9 @@
                                <div class="row">
                                    <div class="col-md-4"></div>
                                    <div class="col-md-4"></div>
-                                   <div class="col-md-4">@include('shared._auther',['model'=>$question,'label'=>'asked'])</div>
+                                   <div class="col-md-4">
+                                   <user-info :model="{{ $question }}" label="asked" />
+                                   </div>
                                </div>
                             </div>
                         </div>
