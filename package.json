@@ -23,10 +23,12 @@
         "sass": "^1.20.1",
         "sass-loader": "^8.0.0",
         "vue": "^2.5.17",
+        "vue-izitoast": "^1.2.1",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
         "@fortawesome/fontawesome": "^1.1.8",
-        "font-awesome": "^4.7.0"
+        "font-awesome": "^4.7.0",
+        "izitoast": "^1.4.0"
     }
 }
