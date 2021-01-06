@@ -22,7 +22,8 @@ class Question extends Model
         'created_at',
         'updated_at'
     ];
-    protected  $appends =['created_date'];
+    protected  $appends =['created_date','favorites_count','is_favorited'];
+                                         //favorites_count
     public function user(){
         return $this->belongsTo(User::class);
     }
