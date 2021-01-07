@@ -42,9 +42,7 @@
         <div class="col-md-12">
             <answers :question=" {{ $question }} " />
         </div>
-            <div class="col-md-12">
-                @include('answers._create')
-            </div>
+
 
     </div>
 @endsection
