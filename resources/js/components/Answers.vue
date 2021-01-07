@@ -7,7 +7,7 @@
                         <h2>{{ title }}</h2>
                     </div>
                     <hr>
-                   <answer v-for="answer in answers" :answer="answer" :key="answer.id" />
+                   <answer @deleted="remove(index)" v-for="(answer ,index) in answers" :answer="answer" :key="answer.id" />
                     <div class="text-center mt-3" v-if="nextUrl">
                         <button @click.prevent="fetch(nextUrl)" class="btn btn-outline-secondary">Load More Answers</button>
                     </div>
@@ -40,6 +40,10 @@ export default {
                     this.answers.push(... data.data);
                     this.nextUrl =data.next_page_url
                 });
+        },
+        remove (index){
+            this.answers.splice(index ,1);
+            this.count--;
         }
     },
     computed: {
