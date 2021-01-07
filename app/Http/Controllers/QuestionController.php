@@ -92,6 +92,12 @@ class QuestionController extends Controller
         //policy //update from QuestionPolicy
         $this->authorize('update',$question);
         $question->update($request->only('title','body'));
+        if(request()->expectsJson()){
+            return  response()->json([
+                'message' => 'your question has been updated.',
+                'body_html' => $question->body_html
+            ]);
+        }
         return redirect()->route('questions.index')->with('success','your question has been updated.');
     }
 
@@ -106,6 +112,9 @@ class QuestionController extends Controller
         //policy //delete from QuestionPolicy
         $this->authorize('delete',$question);
         $question->delete();
+        if(request()->expectsJson()){
+            return response()->json(['message'=>'your question has been deleted.']);
+        }
         return redirect()->route('questions.index')->with('success','your question has been deleted.');
     }
 }

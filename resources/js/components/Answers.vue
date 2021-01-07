@@ -62,7 +62,7 @@ export default {
     },
     components: {
         answer,
-        NewAnswer
+        NewAnswer,
     }
 }
 </script>
